@@ -21,7 +21,7 @@ This tool is currently implemented as a headless HTTP API server, making it easy
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/cidr-checkr.git
+git clone https://github.com/mshumayl/cidr-checkr.git
 cd cidr-checkr
 ```
 
