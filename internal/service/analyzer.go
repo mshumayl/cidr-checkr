@@ -41,14 +41,16 @@ func (a *Analyzer) Analyze(cidrs []string) (*models.AnalysisResponse, error) {
 		return bytes.Compare(parsedCIDRs[i].IP, parsedCIDRs[j].IP) < 0
 	})
 
-	// Check for overlaps in a single pass
-	for i := 0; i < len(parsedCIDRs)-1; i++ {
-		cidr1 := parsedCIDRs[i]
-		cidr2 := parsedCIDRs[i+1]
+	// Check for overlaps between all pairs of CIDRs
+	for i := 0; i < len(parsedCIDRs); i++ {
+		for j := i + 1; j < len(parsedCIDRs); j++ {
+			cidr1 := parsedCIDRs[i]
+			cidr2 := parsedCIDRs[j]
 
-		if overlap := a.checkOverlap(cidr1, cidr2); overlap != nil {
-			response.Overlaps = append(response.Overlaps, *overlap)
-			response.HasCollision = true
+			if overlap := a.checkOverlap(cidr1, cidr2); overlap != nil {
+				response.Overlaps = append(response.Overlaps, *overlap)
+				response.HasCollision = true
+			}
 		}
 	}
 
