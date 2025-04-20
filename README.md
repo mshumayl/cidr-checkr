@@ -4,6 +4,9 @@ cidr-checkr is a tool for quickly analyzing CIDR ranges, detecting overlaps, and
 
 This tool is currently implemented as a headless HTTP API server, making it easy to integrate into other systems or automation workflows.
 
+## Why?
+For more background on the pain points this solution aims to solve, you can check out [this post](https://www.shumayl.site/post/cidr-checkr).
+
 ## Features
 
 - **CIDR Analysis**: Provides detailed information about CIDR ranges, including the first IP, last IP, and total number of hosts.
