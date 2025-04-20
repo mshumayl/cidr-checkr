@@ -1,4 +1,4 @@
-name: Go Tests
+name: API Tests
 
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: 1.20
+
+    - name: Check Go version
+      run: go version
 
     - name: Install dependencies
       run: go mod tidy
