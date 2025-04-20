@@ -1,0 +1,37 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output of build tools
+bin/
+build/
+
+# Go-specific files
+*.log
+*.out
+*.test
+*.prof
+*.cover
+
+# Dependency directories (vendor/)
+vendor/
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+
+# Go module cache
+go.sum

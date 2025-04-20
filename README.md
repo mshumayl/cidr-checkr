@@ -100,8 +100,7 @@ cidr-checkr/
 │   └── service/
 │       ├── analyzer.go      # Core logic for CIDR analysis
 │       └── analyzer_test.go # Unit tests for the analyzer
-├── [go.mod](http://_vscodecontentref_/1)                   # Go module file
-└── go.sum                   # Go dependencies
+└── go.mod                   # Go module file
 ```
 
 ## Contributing
