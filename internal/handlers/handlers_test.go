@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 )
 
@@ -38,5 +39,13 @@ func TestAnalyzeCIDRs(t *testing.T) {
 
 	if len(response.CIDRDetails) != 2 {
 		t.Errorf("expected 2 CIDR details; got %d", len(response.CIDRDetails))
+	}
+
+	expectedDetails := []models.CIDRInfo{
+		{CIDR: "192.168.1.0/24", FirstIP: "192.168.1.0", LastIP: "192.168.1.255", TotalHosts: 254},
+		{CIDR: "10.0.0.0/8", FirstIP: "10.0.0.0", LastIP: "10.255.255.255", TotalHosts: 16777214},
+	}
+	if !reflect.DeepEqual(response.CIDRDetails, expectedDetails) {
+		t.Errorf("unexpected CIDR details: got %+v, want %+v", response.CIDRDetails, expectedDetails)
 	}
 }

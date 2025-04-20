@@ -47,3 +47,12 @@ func TestCheckOverlap(t *testing.T) {
 		t.Errorf("expected overlap; got none")
 	}
 }
+
+func TestInvalidCIDR(t *testing.T) {
+	analyzer := NewAnalyzer()
+	_, err := analyzer.Analyze([]string{"bro why are you sending a string"})
+
+	if err == nil {
+		t.Errorf("expected an error for invalid CIDR; got none")
+	}
+}

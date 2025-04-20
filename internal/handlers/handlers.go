@@ -4,6 +4,7 @@ import (
 	"cidr_checkr/internal/models"
 	"cidr_checkr/internal/service"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -34,7 +35,7 @@ func AnalyzeCIDRs(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	if err := json.NewEncoder(w).Encode(response); err != nil {
-		http.Error(w, "Error encoding response: %v", http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("Error analyzing CIDRs: %v", err), http.StatusInternalServerError)
 		return
 	}
 }
