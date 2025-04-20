@@ -1,6 +1,6 @@
-# CIDR Checkr
+# cidr-checkr
 
-CIDR Checkr is a tool for quickly analyzing CIDR ranges, detecting overlaps, and providing detailed insights into IP address allocations. It is designed for network engineers, security teams, and DevOps professionals to validate and manage IP address configurations effectively.
+cidr-checkr is a tool for quickly analyzing CIDR ranges, detecting overlaps, and providing detailed insights into IP address allocations. It is designed for network engineers, security teams, and DevOps professionals to validate and manage IP address configurations effectively.
 
 This tool is currently implemented as a headless HTTP API server, making it easy to integrate into other systems or automation workflows.
 

@@ -1,0 +1,33 @@
+name: Go Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: 1.20
+
+    - name: Install dependencies
+      run: go mod tidy
+
+    - name: Start API server
+      run: go run cmd/api/main.go &
+      env:
+        PORT: 8080  
+
+    - name: Run Go tests
+      run: go test ./... -v
