@@ -1,7 +1,6 @@
 package service
 
 import (
-	"cidr_checkr/internal/models"
 	"net"
 	"testing"
 )

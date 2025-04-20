@@ -30,8 +30,7 @@ func (a *Analyzer) Analyze(cidrs []string) (*models.AnalysisResponse, error) {
 		parsedCIDRs[i] = network
 
 		// Add CIDR details
-		info := a.getCIDRInfo(cidr, network)
-		response.CIDRDetails = append(response.CIDRDetails, info)
+		response.CIDRDetails[i] = a.getCIDRInfo(cidr, network)
 	}
 
 	// Check for overlaps
